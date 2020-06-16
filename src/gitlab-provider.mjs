@@ -15,14 +15,18 @@ export class GitlabProvider extends MultiGroupProvider {
   static get attributes() {
     return {
       ...super.attributes,
+      "authentication.token" : {
+        env: "GITLB_TOKEN",
+        mandatory: true,
+        private: true
+      },
       api: {
         description: "URL of the provider api",
         env: "GITLAB_API",
-        default: "https://api.gitlab.com/"
+        default: "https://gitlab.com/api/v4"
       }
     };
   }
-
 
   /**
    * All possible base urls
@@ -56,11 +60,8 @@ export class GitlabProvider extends MultiGroupProvider {
 
   fetch(url, options = {}) {
     const headers = {
-      authorization:
-        "Basic " +
-        Buffer.from(
-          this.authentication.username + ":" + this.authentication.password
-        ).toString("base64"),
+      "PRIVATE-TOKEN": this.authentication.token,
+
       ...options.headers
     };
 
@@ -78,8 +79,8 @@ export class GitlabProvider extends MultiGroupProvider {
 }
 
 replaceWithOneTimeExecutionMethod(
-  BitbucketProvider.prototype,
+  GitlabProvider.prototype,
   "initializeRepositories"
 );
 
-export default BitbucketProvider;
+export default GitlabProvider;
