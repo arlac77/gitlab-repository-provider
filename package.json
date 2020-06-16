@@ -1,12 +1,54 @@
 {
-    "name": "gitlab-repository-provider",
-    "main": "./src/gitlab-provider.mjs",
-    "dependencies": {
-        "content-entry": "^2.5.0",
-        "matching-iterator": "^1.1.0",
-        "node-fetch": "3.0.0-beta.7",
-        "one-time-execution-method": "^2.0.1",
-        "repository-provider": "^23.1.2"
-      }
-    
+  "name": "gitlab-repository-provider",
+  "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./src/gitlab-provider.mjs",
+  "exports": {
+    ".": "./src/gitlab-provider.mjs"
+  },
+  "description": "repository provider for gitlab hosted repos",
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "cover": "--overwrite-- c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
+    "test": "ava --timeout 2m",
+    "docs": "--overwrite-- documentation readme ./src/gitlab-provider.mjs --section=API",
+    "lint": "--overwrite-- documentation lint ./src/gitlab-provider.mjs"
+  },
+  "dependencies": {
+    "content-entry": "^2.5.0",
+    "matching-iterator": "^1.1.0",
+    "node-fetch": "3.0.0-beta.7",
+    "one-time-execution-method": "^2.0.1",
+    "repository-provider": "^23.1.2"
+  },
+  "devDependencies": {
+    "c8": "^7.2.0",
+    "ava": "^3.9.0",
+    "documentation": "^13.0.1",
+    "semantic-release": "^17.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/gitlab-repository-provider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/gitlab-repository-provider/issues"
+  },
+  "homepage": "https://github.com/arlac77/gitlab-repository-provider#readme",
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-esm-only"
+    ]
+  }
 }

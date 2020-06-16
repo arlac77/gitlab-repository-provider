@@ -1,0 +1,9 @@
+.vscode
+.travis.yml
+build
+tests
+doc
+*.log
+*.tmp
+.tmp
+.test
