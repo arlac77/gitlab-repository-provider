@@ -26,7 +26,7 @@ test("optionsFromEnvironment user", t => {
 test("optionsFromEnvironment api", t => {
   t.deepEqual(
     GitlabProvider.optionsFromEnvironment({
-      BITBUCKET_API: "https://stash.myserver.mydomain:1234/api/2.0"
+      GITLAB_API: "https://stash.myserver.mydomain:1234/api/2.0"
     }),
     { api: "https://stash.myserver.mydomain:1234/api/2.0" }
   );
@@ -54,7 +54,7 @@ test("provider branches", async t => {
   t.is(repository.name, "sync-test-repository");
   t.is(
     repository.urls.find(u => u.startsWith("http")),
-    "https://bitbucket.org/arlac77/sync-test-repository.git"
+    "https://gitlab.com/arlac77/sync-test-repository.git"
   );
 
   for await (const branch of repository.branches("master")) {
@@ -74,7 +74,7 @@ test("provider url git@ / ", async t => {
   t.is(
     (
       await provider.repository(
-        "git@bitbucket.org/arlac77/sync-test-repository.git"
+        "git@gitlab.com/arlac77/sync-test-repository.git"
       )
     ).name,
     "sync-test-repository"

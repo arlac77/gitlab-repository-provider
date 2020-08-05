@@ -18,12 +18,14 @@ export class GitlabProvider extends MultiGroupProvider {
       "authentication.token" : {
         env: "GITLB_TOKEN",
         mandatory: true,
-        private: true
+        private: true,
+        type: "string"
       },
       api: {
         description: "URL of the provider api",
         env: "GITLAB_API",
-        default: "https://gitlab.com/api/v4"
+        default: "https://gitlab.com/api/v4",
+        type: "string"
       }
     };
   }
@@ -34,6 +36,7 @@ export class GitlabProvider extends MultiGroupProvider {
    */
   get repositoryBases() {
     return [
+      "https://gitlab.com/"
     ];
   }
 
