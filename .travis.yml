@@ -6,7 +6,7 @@ jobs:
         - npm run cover
         - cat ./build/coverage/lcov.info | npx coveralls
       node_js:
-        - 14.8.0
+        - 14.9.0
     - stage: doc
       node_js: lts/*
       skip_cleanup: 'true'
@@ -24,6 +24,5 @@ jobs:
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
     - /^mkpr/.*$/
     - /^npm-template-sync/.*$/
