@@ -15,7 +15,7 @@ export class GitlabProvider extends MultiGroupProvider {
   static get attributes() {
     return {
       ...super.attributes,
-      "authentication.token" : {
+      "authentication.token": {
         env: "GITLB_TOKEN",
         mandatory: true,
         private: true,
@@ -35,9 +35,15 @@ export class GitlabProvider extends MultiGroupProvider {
    * @return {string[]} common base urls of all repositories
    */
   get repositoryBases() {
-    return [
-      "https://gitlab.com/"
-    ];
+    return ["https://gitlab.com/"];
+  }
+
+  /**
+   * We are called gitlab
+   * @return {string} gitlab
+   */
+  get name() {
+    return "gitlab";
   }
 
   async initializeRepositories() {
@@ -45,7 +51,7 @@ export class GitlabProvider extends MultiGroupProvider {
 
     do {
       const r = await this.fetch(url);
-      
+
       if (!r.ok) {
         break;
       }
