@@ -9,29 +9,6 @@ test("optionsFromEnvironment undefined", t => {
   t.is(GitlabProvider.optionsFromEnvironment(undefined), undefined);
 });
 
-test("optionsFromEnvironment user", t => {
-  t.deepEqual(
-    GitlabProvider.optionsFromEnvironment({
-      BITBUCKET_USERNAME: "user",
-      BITBUCKET_PASSWORD: "pass"
-    }),
-    {
-      "authentication.username": "user",
-      "authentication.password": "pass",
-      "authentication.type": "basic"
-    }
-  );
-});
-
-test("optionsFromEnvironment api", t => {
-  t.deepEqual(
-    GitlabProvider.optionsFromEnvironment({
-      GITLAB_API: "https://stash.myserver.mydomain:1234/api/2.0"
-    }),
-    { api: "https://stash.myserver.mydomain:1234/api/2.0" }
-  );
-});
-
 test("optionsFromEnvironment token", t => {
   t.deepEqual(
     GitlabProvider.optionsFromEnvironment({
@@ -40,7 +17,7 @@ test("optionsFromEnvironment token", t => {
     { "authentication.token": "1234", "authentication.type": "token" }
   );
   t.deepEqual(
-    BitbucketProvider.optionsFromEnvironment({
+    GitlabProvider.optionsFromEnvironment({
       BITBUCKET_TOKEN: "1234"
     }),
     { "authentication.token": "1234", "authentication.type": "token" }
