@@ -12,13 +12,13 @@ test("optionsFromEnvironment undefined", t => {
 test("optionsFromEnvironment token", t => {
   t.deepEqual(
     GitlabProvider.optionsFromEnvironment({
-      BB_TOKEN: "1234"
+      GITLAB_TOKEN: "1234"
     }),
     { "authentication.token": "1234", "authentication.type": "token" }
   );
   t.deepEqual(
     GitlabProvider.optionsFromEnvironment({
-      BITBUCKET_TOKEN: "1234"
+      GITLAB_TOKEN: "1234"
     }),
     { "authentication.token": "1234", "authentication.type": "token" }
   );
@@ -46,7 +46,7 @@ test("provider repository undefined", async t => {
   t.is(repository, undefined);
 });
 
-test("provider url git@ / ", async t => {
+test.skip("provider url git@ / ", async t => {
   const provider = new GitlabProvider(config);
   t.is(
     (
@@ -56,12 +56,4 @@ test("provider url git@ / ", async t => {
     ).name,
     "sync-test-repository"
   );
-});
-
-test("provider repo with branch name", async t => {
-  const provider = new GitlabProvider(config);
-  const branch = await provider.branch(REPOSITORY_NAME + "#master");
-
-  t.is(branch.provider, provider);
-  t.is(branch.name, "master");
 });

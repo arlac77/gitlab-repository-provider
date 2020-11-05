@@ -17,10 +17,12 @@ export class GitlabProvider extends MultiGroupProvider {
     return {
       ...super.attributes,
       "authentication.token": {
+        type: "string",
+        description: "API token",
         env: "GITLAB_TOKEN",
         mandatory: true,
-        private: true,
-        type: "string"
+        additionalAttributes: { "authentication.type": "token" },
+        private: true
       },
       api: {
         description: "URL of the provider api",
@@ -36,7 +38,7 @@ export class GitlabProvider extends MultiGroupProvider {
    * @return {string[]} common base urls of all repositories
    */
   get repositoryBases() {
-    return [`https://${domain}/`];
+    return [`https://${domain}/`, `git@${domain}`];
   }
 
   /**
@@ -53,6 +55,7 @@ export class GitlabProvider extends MultiGroupProvider {
     do {
       const r = await this.fetch(url);
 
+      console.log(r);
       if (!r.ok) {
         break;
       }
@@ -69,7 +72,7 @@ export class GitlabProvider extends MultiGroupProvider {
 
   fetch(url, options = {}) {
     const headers = {
-      "PRIVATE-TOKEN": this.authentication.token,
+   //   "PRIVATE-TOKEN": this.authentication.token,
       ...options.headers
     };
 
