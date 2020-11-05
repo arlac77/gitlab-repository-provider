@@ -1,7 +1,8 @@
 import fetch from "node-fetch";
 import { replaceWithOneTimeExecutionMethod } from "one-time-execution-method";
-
 import { MultiGroupProvider } from "repository-provider";
+
+const domain = "gitlab.com";
 
 /**
  * Provider for gitlab repositories
@@ -16,7 +17,7 @@ export class GitlabProvider extends MultiGroupProvider {
     return {
       ...super.attributes,
       "authentication.token": {
-        env: "GITLB_TOKEN",
+        env: "GITLAB_TOKEN",
         mandatory: true,
         private: true,
         type: "string"
@@ -24,7 +25,7 @@ export class GitlabProvider extends MultiGroupProvider {
       api: {
         description: "URL of the provider api",
         env: "GITLAB_API",
-        default: "https://gitlab.com/api/v4",
+        default: `https://${domain}/api/v4`,
         type: "string"
       }
     };
@@ -35,7 +36,7 @@ export class GitlabProvider extends MultiGroupProvider {
    * @return {string[]} common base urls of all repositories
    */
   get repositoryBases() {
-    return ["https://gitlab.com/"];
+    return [`https://${domain}/`];
   }
 
   /**
@@ -61,8 +62,7 @@ export class GitlabProvider extends MultiGroupProvider {
       url = res.next;
       res.values.map(b => {
         const groupName = b.owner.nickname || b.owner.username;
-        const group = this.addRepositoryGroup(groupName, b.owner);
-        group.addRepository(b.name, b);
+        this.addRepositoryGroup(groupName, b.owner).addRepository(b.name, b);
       });
     } while (url);
   }
@@ -70,7 +70,6 @@ export class GitlabProvider extends MultiGroupProvider {
   fetch(url, options = {}) {
     const headers = {
       "PRIVATE-TOKEN": this.authentication.token,
-
       ...options.headers
     };
 
