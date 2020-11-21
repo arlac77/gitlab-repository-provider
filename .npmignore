@@ -1,5 +1,4 @@
 .vscode
-.travis.yml
 build
 tests
 doc
