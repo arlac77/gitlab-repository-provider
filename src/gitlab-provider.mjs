@@ -38,7 +38,7 @@ export class GitlabProvider extends MultiGroupProvider {
    * @return {string[]} common base urls of all repositories
    */
   get repositoryBases() {
-    return [`https://${domain}/`, `git@${domain}`];
+    return [this.name + ':',`https://${domain}/`, `git@${domain}`];
   }
 
   /**
