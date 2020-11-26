@@ -38,7 +38,10 @@ export class GitlabProvider extends MultiGroupProvider {
    * @return {string[]} common base urls of all repositories
    */
   get repositoryBases() {
-    return [this.name + ':',`https://${domain}/`, `git@${domain}`];
+    return super.repositoryBases.concat([
+      `https://${domain}/`,
+      `git@${domain}`
+    ]);
   }
 
   /**
@@ -72,7 +75,7 @@ export class GitlabProvider extends MultiGroupProvider {
 
   fetch(url, options = {}) {
     const headers = {
-   //   "PRIVATE-TOKEN": this.authentication.token,
+      //   "PRIVATE-TOKEN": this.authentication.token,
       ...options.headers
     };
 
