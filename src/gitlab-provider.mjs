@@ -75,7 +75,7 @@ export class GitlabProvider extends MultiGroupProvider {
 
   fetch(url, options = {}) {
     const headers = {
-      //   "PRIVATE-TOKEN": this.authentication.token,
+      Authorization: `Bearer ${this.authentication.token}`,
       ...options.headers
     };
 
