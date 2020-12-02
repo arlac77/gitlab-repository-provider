@@ -41,14 +41,6 @@ export class GitlabProvider extends MultiGroupProvider {
     };
   }
 
-  constructor(options) {
-    super(options);
-
-    if (this.authentication === undefined) {
-      this.authentication = {};
-    }
-  }
-
   /**
    * All possible base urls.
    * @return {string[]} common base urls of all repositories
