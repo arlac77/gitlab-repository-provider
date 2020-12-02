@@ -13,7 +13,7 @@ export class GitlabProvider extends MultiGroupProvider {
    * We are called gitlab.
    * @return {string} gitlab
    */
-  get name() {
+  static get name() {
     return "gitlab";
   }
 
