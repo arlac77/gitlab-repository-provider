@@ -5,7 +5,7 @@ import { MultiGroupProvider } from "repository-provider";
 const domain = "gitlab.com";
 
 /**
- * Provider for gitlab repositories
+ * Provider for gitlab repositories.
  *
  */
 export class GitlabProvider extends MultiGroupProvider {
@@ -18,7 +18,7 @@ export class GitlabProvider extends MultiGroupProvider {
   }
 
   /**
-   * Default configuration as given for the cloud privider
+   * Default configuration as given for the cloud provider.
    * @return {Object}
    */
   static get attributes() {
@@ -35,14 +35,22 @@ export class GitlabProvider extends MultiGroupProvider {
       api: {
         description: "URL of the provider api",
         env: "GITLAB_API",
-        default: `https://${domain}/api/v4`,
+        default: `https://${domain}/api/v4/`,
         type: "string"
       }
     };
   }
 
+  constructor(options) {
+    super(options);
+
+    if (this.authentication === undefined) {
+      this.authentication = {};
+    }
+  }
+
   /**
-   * All possible base urls
+   * All possible base urls.
    * @return {string[]} common base urls of all repositories
    */
   get repositoryBases() {
@@ -53,12 +61,11 @@ export class GitlabProvider extends MultiGroupProvider {
   }
 
   async initializeRepositories() {
-    let url = `repositories/?role=contributor`;
+    let url = "projects/?role=contributor";
 
     do {
       const r = await this.fetch(url);
 
-      console.log(r);
       if (!r.ok) {
         break;
       }

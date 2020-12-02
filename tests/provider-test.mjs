@@ -28,6 +28,10 @@ test("optionsFromEnvironment token", t => {
 
 test("provider branches", async t => {
   const provider = new GitlabProvider(config);
+
+  t.is(provider.authentication.type, "token");
+  t.true(provider.authentication.token.length > 5);
+  
   const repository = await provider.repository(REPOSITORY_NAME);
 
   t.is(repository.name, "sync-test-repository");
