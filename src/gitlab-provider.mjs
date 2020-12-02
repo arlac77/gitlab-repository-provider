@@ -10,6 +10,14 @@ const domain = "gitlab.com";
  */
 export class GitlabProvider extends MultiGroupProvider {
   /**
+   * We are called gitlab.
+   * @return {string} gitlab
+   */
+  get name() {
+    return "gitlab";
+  }
+
+  /**
    * Default configuration as given for the cloud privider
    * @return {Object}
    */
@@ -42,14 +50,6 @@ export class GitlabProvider extends MultiGroupProvider {
       `https://${domain}/`,
       `git@${domain}`
     ]);
-  }
-
-  /**
-   * We are called gitlab
-   * @return {string} gitlab
-   */
-  get name() {
-    return "gitlab";
   }
 
   async initializeRepositories() {

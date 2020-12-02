@@ -5,6 +5,8 @@ const REPOSITORY_NAME = "arlac77/sync-test-repository";
 
 const config = GitlabProvider.optionsFromEnvironment(process.env);
 
+test("provider factory name", t => t.is(GitlabProvider.name, "gitlab"));
+
 test("optionsFromEnvironment undefined", t => {
   t.is(GitlabProvider.optionsFromEnvironment(undefined), undefined);
 });
