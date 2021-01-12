@@ -8,3 +8,22 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/gitlab-repository-provider/badge.svg)](https://snyk.io/test/github/arlac77/gitlab-repository-provider)
 [![Coverage Status](https://coveralls.io/repos/arlac77/gitlab-repository-provider/badge.svg)](https://coveralls.io/github/arlac77/gitlab-repository-provider)
+
+# gitlab-repository-provider
+
+repository provider for gitlab hosted repos
+
+# API
+
+
+# install
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install gitlab-repository-provider
+```
+
+# license
+
+BSD-2-Clause
