@@ -25,11 +25,11 @@
     "lint:docs": "documentation lint ./src/**/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^5.0.6",
-    "matching-iterator": "^2.0.6",
+    "content-entry": "^5.0.7",
+    "matching-iterator": "^2.0.7",
     "node-fetch": "3.2.6",
-    "one-time-execution-method": "^3.0.3",
-    "repository-provider": "^32.0.2"
+    "one-time-execution-method": "^3.0.4",
+    "repository-provider": "^32.0.3"
   },
   "devDependencies": {
     "ava": "^4.3.0",
