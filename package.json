@@ -27,7 +27,7 @@
   "dependencies": {
     "content-entry": "^5.0.8",
     "matching-iterator": "^2.0.7",
-    "node-fetch": "3.2.8",
+    "node-fetch": "3.2.9",
     "one-time-execution-method": "^3.0.4",
     "repository-provider": "^32.0.4"
   },
