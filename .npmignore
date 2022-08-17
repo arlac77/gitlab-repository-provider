@@ -4,6 +4,4 @@ tests
 doc
 *.log
 *.tmp
-.tmp
-.test
 .github
