@@ -25,7 +25,7 @@
     "lint:docs": "documentation lint ./src/**/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^5.2.9",
+    "content-entry": "^5.2.10",
     "matching-iterator": "^2.0.8",
     "node-fetch": "3.2.10",
     "one-time-execution-method": "^3.0.4",
