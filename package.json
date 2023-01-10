@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/gitlab-repository-provider.git"
+    "url": "https://github.com/arlac77/gitlab-repository-provider"
   },
   "bugs": {
     "url": "https://github.com/arlac77/gitlab-repository-provider/issues"
