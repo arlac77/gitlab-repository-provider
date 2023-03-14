@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import { replaceWithOneTimeExecutionMethod } from "one-time-execution-method";
 import { MultiGroupProvider } from "repository-provider";
 
