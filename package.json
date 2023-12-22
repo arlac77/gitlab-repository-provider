@@ -27,7 +27,7 @@
     "content-entry": "^8.0.1",
     "matching-iterator": "^2.0.12",
     "one-time-execution-method": "^3.0.6",
-    "repository-provider": "^34.0.3"
+    "repository-provider": "^34.0.4"
   },
   "devDependencies": {
     "ava": "^6.0.1",
