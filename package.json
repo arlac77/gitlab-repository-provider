@@ -37,6 +37,11 @@
     "documentation": "^14.0.3",
     "semantic-release": "^25.0.3"
   },
+  "overrides": {
+    "c8": {
+      "yargs": "^18.0.0"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arlac77/gitlab-repository-provider.git"
